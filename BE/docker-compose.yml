@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+    intoxication-database:
+        build: postgres
+        container_name: intoxication-database
+        ports:
+            - "5430:5432"
+        expose:
+            - 5432
+        volumes:
+            - postgres_data:/var/lib/postgresql/data:rw
+        environment:
+            POSTGRES_DB: intoxicationaut
+            POSTGRES_USER: intoxicationaut_user
+            POSTGRES_PASSWORD: intoxicationaut_pass
+            TZ: "Europe/Tallinn"
+volumes:
+  postgres_data:
